@@ -1,17 +1,17 @@
 package com.udacity.gradle.builditbigger;
 
-import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.johnnymolina.gradle.jokes.Joker;
-
+import com.johnnymolina.gradle.androidjokes.MainJokeActivity;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -19,7 +19,6 @@ import com.johnnymolina.gradle.jokes.Joker;
 public class MainActivityFragment extends Fragment {
 
     private Joker joker;
-    private Button button;
 
     public MainActivityFragment() {
     }
@@ -28,7 +27,7 @@ public class MainActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
-        button = (Button) root.findViewById(R.id.joke_button);
+        Button button = (Button) root.findViewById(R.id.joke_button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,16 +44,16 @@ public class MainActivityFragment extends Fragment {
                 .build();
         mAdView.loadAd(adRequest);
 
-
-
         joker = new Joker();
 
         return root;
     }
 
     public void tellJoke(){
-        if (joker!=null) {
-            Toast.makeText(getActivity(), joker.getJoke(), Toast.LENGTH_SHORT).show();
+        if (joker!=null && joker.getJoke()!=null) {
+            Intent i = new Intent(getActivity(), MainJokeActivity.class);
+            i.putExtra("joke", joker.getJoke());
+            startActivity(i);
         }
     }
 }
