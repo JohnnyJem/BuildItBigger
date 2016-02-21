@@ -3,8 +3,9 @@ package com.udacity.gradle.builditbigger;
 import android.app.Application;
 import android.test.ApplicationTestCase;
 
+
 /**
- * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
+ *Test if Async task successfully retrieves a non-empty string.
  */
 public class ApplicationTest extends ApplicationTestCase<Application> {
     public ApplicationTest() {
