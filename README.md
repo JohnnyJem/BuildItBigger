@@ -1,5 +1,6 @@
 # Build It Bigger 
 Project 4 Android Nanodegree
+
 Used Gradle to build a joke-telling app, factoring functionality into libraries and flavors to keep the build simple. Configured a Google Cloud Endpoints development server to supply the jokes
 
 ## Build/Install
